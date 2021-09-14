@@ -21,28 +21,28 @@ def entities():
 
 @route('/assaltos')
 def assaltos():
-    PATH = '/v2/entities/?q=subtype==\'Assalto\'&type=Ocorrencia'
+    PATH = '/v2/entities/?q=subtype==\'Assalto\'&type=Ocorrencias'
     response.content_type = 'application/json'
     r = requests.get(BASEURL + PATH)
     return r
 
 @route('/homicidios')
 def homicidios():
-    PATH = '/v2/entities/?q=subtype==\'Homicidio\'&type=Ocorrencia'
+    PATH = '/v2/entities/?q=subtype==\'Homicidio\'&type=Ocorrencias'
     response.content_type = 'application/json'
     r = requests.get(BASEURL + PATH)
     return r
 
 @route('/roubosDeCarros')
 def roubosDeCarros():
-    PATH = '/v2/entities/?q=subtype==\'RoubosDeCarros\'&type=Ocorrencia'
+    PATH = '/v2/entities/?q=subtype==\'Roubo de Carro\'&type=Ocorrencias'
     response.content_type = 'application/json'
     r = requests.get(BASEURL + PATH)
     return r
 
 @route('/ocorrencias')
 def ocorrencias():
-    PATH = '/v2/entities/?type=Ocorrencia'
+    PATH = '/v2/entities/?type=Ocorrencias'
     response.content_type = 'application/json'
     r = requests.get(BASEURL + PATH)
     return r

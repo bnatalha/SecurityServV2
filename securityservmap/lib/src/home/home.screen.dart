@@ -9,6 +9,8 @@ import "package:latlong2/latlong.dart";
 import 'package:flutter_map_marker_popup/flutter_map_marker_popup.dart';
 import 'package:securityservmap/src/ui/example_popup.widget.dart';
 import 'package:securityservmap/src/ui/markers.dart';
+import 'package:flutter_map/plugin_api.dart';
+import 'package:securityservmap/src/ui/zoombutton.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -34,9 +36,21 @@ class _MyHomePageState extends State<MyHomePage> {
     final LatLng natal = LatLng(-5.79448, -35.211);
     final LatLng initialPoint = natal;
     return FlutterMap(
+      nonRotatedLayers: [
+        ZoomButtonsPluginOption(
+          minZoom: 4,
+          maxZoom: 19,
+          mini: true,
+          padding: 10,
+          alignment: Alignment.bottomRight,
+        ),
+      ],
       options: MapOptions(
-        zoom: 13.0,
+        zoom: 15.0,
         center: initialPoint,
+        plugins: [
+          ZoomButtonsPlugin(),
+        ],
         onTap: (_) => _popupLayerController
             .hidePopup(), // Hide popup when the map is tapped.
       ),
